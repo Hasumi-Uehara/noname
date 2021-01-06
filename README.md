@@ -5,8 +5,8 @@
 | Column         | Type       | Options     |
 | -------------- | ---------- | ----------- |
 | nickname       | string     | null: false |
-| profile        | text       | null: false |
-| appearance     | string     | null: false |
+| profile        | text       |             |
+| appearance     | string     |             |
 | highest_record | string     |             |
 
 ### Association
