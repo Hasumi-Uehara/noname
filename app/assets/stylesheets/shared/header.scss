@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  width: 100vw;
+  padding: 1vh 3vw;
+  background-color: #414040;
+}
+
+.top-page-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beyond-icon {
+  width: 9vw;
+  margin-right: 10vw;
+  width: 90px;
+  height: 55px;
+}
+
+.contents-right {
+  font-size: 16px;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists {
+  display: flex;
+  list-style: none;
+  float: right;
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #FFF;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #FFF;
+}
+
+.sign-up {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #FFF;
+}
