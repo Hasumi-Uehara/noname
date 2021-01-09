@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
   belongs_to :user
   has_one_attached :image
   
@@ -7,7 +10,6 @@ class Post < ApplicationRecord
     validates :event_date
     validates :user_id
     validates :image
+    validates :prefecture_id, numericality: { other_than: 0 }
   end
-
-  validates :prefecture_id, numericality: { other_than: 0 }
 end
