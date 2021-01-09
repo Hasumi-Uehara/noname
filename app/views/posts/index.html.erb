@@ -1,0 +1,82 @@
+<div class='main'>
+  <%# キャッチ %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      Hello Runner!
+    </h2>
+    <p class='service-explain'>
+      きれいな景色、おいしいグルメ、人の温かさ。<br>
+      あなたの感動を届けよう、<br>
+      日本中のランナーに。
+    </p>
+  </div>
+  <%# キャッチ %>
+
+  <%# アプリ紹介 %>
+  <div class='select-reason-contents'>
+    <h2 class='title'>
+      ランナー同士、「あの街よかったよ！」を共有しあえる場所。
+    </h2>
+    <ul class='reason-lists'>
+      <li class='list'>
+        <%= image_tag "3040067.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          感動を伝えよう
+        </h3>
+        <p class='reason-list-description'>
+          全国のランナーがあなたの発信を待っています！
+        </p>
+        <%=link_to '投稿する', new_post_path, class:"button-2" %>
+      </li>
+      <li class='list'>
+        <%= image_tag "2408286.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          行きたい街を見つけよう
+        </h3>
+        <p class='reason-list-description'>
+          エリア検索、カテゴリー検索ができます！
+        </p>
+        <a href="#!" class="button-2">検索する</a>
+      </li>
+      <li class='list'>
+        <%= image_tag "21004062.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          フォローしよう
+        </h3>
+        <p class='reason-list-description'>
+          同じ趣味のランナーと繋がって、走るをもっと楽しもう！
+        </p>
+        <a href="#!" class="button-2">マイページ</a>
+      </li>
+    </ul>
+  </div>
+  <%# アプリ紹介 %>
+
+  <%# 新着情報 %>
+  <div class='post-contents'>
+    <h2 class='title'>新着情報</h2>
+    <ul class='post-lists'>
+      <% @posts.each do |post| %>
+      <li class='list'>
+        <%= link_to "#" do %>
+        <div class='post-img-content'>
+          <%#= image_tag post.image, class: "post-img" if post.image.attached? %>
+        </div>
+        <div class='post-info'>
+          <h3 class='post-title'>
+            <%= post.title %>
+          </h3>
+          <div class='post-text'>
+            <div class='star-btn'>
+              <%#= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <%# 新着情報 %>
+</div>
