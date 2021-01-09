@@ -20,8 +20,8 @@
 | ------------- | ---------- | ------------------------------ |
 | event_name    | string     | null: false                    |
 | event_date    | date       | null: false                    |
-| title         | string     | null: false                    |
-| text          | text       | null: false                    |
+| title         | string     |                                |
+| text          | text       |                                |
 | record        | string     |                                |
 | prefecture_id | integer    | null:false                     |
 | user          | references | null: false, foreign_key: true |
