@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_024337) do
     t.string "event_name", null: false
     t.integer "prefecture_id", null: false
     t.bigint "user_id", null: false
-    t.string "record"
+    t.string "tournament_record"
     t.string "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
