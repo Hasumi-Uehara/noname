@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="post-title"><%= @post.user.nickname %>さんの投稿</h2>
+  <div class="show-head">
+    <div class="prefecture-tag"><%= @post.prefecture.name %></div>
+    <div class="show-title"><%= @post.event_name %></div>
+  </div>
+  <div class="post-details">
+    <div class="post-img">
+      <%= link_to image_tag(@post.image), "#" %>
+    </div>
+    <div class="detail">
+      <table class="show-table">
+        <tbody>
+          <tr>
+            <th class="table__col3">開催日</th>
+            <td class="table__col4"><%= @post.event_date %></td>
+          </tr>
+          <tr>
+            <th class="table__col3">大会記録</th>
+            <td class="table__col4"><%= @post.tournament_record %></td>
+          </tr>
+          <tr>
+            <th class="table__col3">タイトル</th>
+            <td class="table__col4"><%= @post.title %></td>
+          </tr>
+          <tr>
+            <th class="table__col3">本文</th>
+            <td class="table__col4"><%= @post.text %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="edit-post-btn-contents">
+  <% if user_signed_in? && current_user == @post.user %>
+    <%= link_to '編集する', edit_post_path(@post), class:"edit-post-btn" %>
+  <% end %>
+  <%= link_to '戻る', root_path, class:"back-btn" %>
+</div>

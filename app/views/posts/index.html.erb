@@ -69,7 +69,7 @@
           <h1><%= post.title %></h1>
           <h2><%= post.event_name %></h2>
           <p class="text"><%= post.text %>...</p>
-          <a href="#">Read More <i class="fas fa-angle-double-right"></i></a>
+          <%= link_to "Read More", post_path(post), class:"read-more"  %>
         </div>
       </div>
     <% end %>
