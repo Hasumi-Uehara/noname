@@ -1,0 +1,59 @@
+<%= form_with model: @user do |f| %>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        <i class="fas fa-paper-plane"></i> プロフィール編集
+      </h1>
+    </div>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ニックネーム</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :nickname, class:"input-default", id:"nickname", maxlength:"40" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">プロフィール画像</label>
+        <span class="optional">任意</span>
+      </div>
+      <div class="click-upload">
+        <input id="profile-image" type="file" name="user[avatar]">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">自己紹介</label>
+        <span class="optional">任意</span>
+      </div>
+      <div class='input-name-wrap'>
+        <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"例) 沖縄県在住、ランナー歴5年。" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">マラソン出場回数</label>
+        <span class="optional">任意</span>
+      </div>
+      <div class='input-appearance-wrap'>
+        <%= f.text_area :appearance, class:"input-appearance", id:"appearance", placeholder:"例) フル完走3回" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">最高スコア</label>
+        <span class="optional">任意</span>
+      </div>
+      <div class='input-highest-record-wrap'>
+        <%= f.text_area :highest_record, class:"input-highest-record", id:"highest-record", placeholder:"例) 那覇マラソン4:52:47" %>
+      </div>
+    </div>
+    <div class="user-update-btn-contents">
+      <%= f.submit '保存する', class:"update-btn" %>
+      <%= link_to '戻る', user_path(current_user), class:"back-btn" %>
+    </div>
+  </div>
+<% end %>
