@@ -1,0 +1,48 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <% if user_signed_in? && @user == current_user %>
+          <i class="far fa-user"></i> あなたのプロフィール
+        <% else %>
+          <i class="far fa-user"></i> <%= @user.nickname %>さんのプロフィール
+        <% end %>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">ニックネーム</th>
+            <td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">自己紹介</th>
+            <td class="table__col2"><%= @user.profile %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">マラソン出場回数</th>
+            <td class="table__col2"><%= @user.appearance %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">最高スコア</th>
+            <td class="table__col2"><%= @user.highest_record %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="user-edit-btn-contents">
+        <% if user_signed_in? && @user == current_user %>
+          <%= link_to '編集する', edit_user_path(current_user), class:"edit-btn" %>
+        <% end %>
+      </div>
+      <section id=timeline>
+        <div class="user-history">
+          <h1 class="user-history-title"><b><i class="fas fa-rocket"></i> 過去の出場履歴</b></h1>
+        </div>
+        <ul class="timeline">
+          <% @posts.each do |post| %>
+            <%= render partial: 'shared/post', locals: {post: post} %>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>

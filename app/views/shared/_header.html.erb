@@ -1,4 +1,4 @@
-<%# CSS・・・assets/stylesheets/shared/header.scss %>
+<%# CSS・・・assets/stylesheets/css/shared/header.css %>
 <header class='nav'>
   <div class="top-page-contents">
     <div class='contents-left'>
@@ -7,7 +7,7 @@
     <div class='contents-right'>
       <ul class='lists'>
         <% if user_signed_in? %>
-          <li><i class="fas fa-cog"></i><%= link_to 'マイページ', "#", class: "user-nickname" %></li>
+          <li><i class="fas fa-cog"></i><%= link_to 'マイページ', user_path(current_user.id), class: "user-nickname" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
         <% else %>
           <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>

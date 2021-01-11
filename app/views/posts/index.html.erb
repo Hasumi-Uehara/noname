@@ -1,10 +1,10 @@
 <div class='main'>
   <%# キャッチ %>
   <div class='title-contents'>
-    <h2 class='service-title'>
+    <h2 class='top-title'>
       Hello Runner!
     </h2>
-    <p class='service-explain'>
+    <p class='top-explain'>
       きれいな景色、おいしいグルメ、人の温かさ。<br>
       あなたの感動を届けよう、<br>
       日本中のランナーに。
@@ -13,37 +13,37 @@
   <%# キャッチ %>
 
   <%# アプリ紹介 %>
-  <div class='select-reason-contents'>
+  <div class='introduction-contents'>
     <h2 class='title'>
-      ランナー同士、「あの街よかったよ！」を共有しあえる場所。
+      「あの街よかったよ！」と<br>ランナー同士で共有しあえるプラットフォーム。
     </h2>
-    <ul class='reason-lists'>
+    <ul class='introduction-lists'>
       <li class='list'>
         <%= image_tag "3040067.jpg", class:"list-pict" %>
-        <h3 class='reason-list-text'>
+        <h3 class='introduction-list-text'>
           感動を伝えよう
         </h3>
-        <p class='reason-list-description'>
+        <p class='introduction-list-description'>
           全国のランナーがあなたの発信を待っています！
         </p>
         <%=link_to '投稿する', new_post_path, class:"button-2" %>
       </li>
       <li class='list'>
         <%= image_tag "2408286.jpg", class:"list-pict" %>
-        <h3 class='reason-list-text'>
+        <h3 class='introduction-list-text'>
           行きたい街を見つけよう
         </h3>
-        <p class='reason-list-description'>
+        <p class='introduction-list-description'>
           エリア検索、カテゴリー検索ができます！
         </p>
         <a href="#!" class="button-2">検索する</a>
       </li>
       <li class='list'>
         <%= image_tag "21004062.jpg", class:"list-pict" %>
-        <h3 class='reason-list-text'>
+        <h3 class='introduction-list-text'>
           フォローしよう
         </h3>
-        <p class='reason-list-description'>
+        <p class='introduction-list-description'>
           同じ趣味のランナーと繋がって、走るをもっと楽しもう！
         </p>
         <a href="#!" class="button-2">マイページ</a>
@@ -53,30 +53,26 @@
   <%# アプリ紹介 %>
 
   <%# 新着情報 %>
-  <div class='post-contents'>
+  <div class='news-contents'>
     <h2 class='title'>新着情報</h2>
-    <ul class='post-lists'>
-      <% @posts.each do |post| %>
-      <li class='list'>
-        <%= link_to "#" do %>
-        <div class='post-img-content'>
-          <%#= image_tag post.image, class: "post-img" if post.image.attached? %>
+    <% @posts.each do |post| %>
+      <div class="cp_card">
+        <div class="photo photo1">
+          <%= link_to image_tag(post.image), "#" %>
         </div>
-        <div class='post-info'>
-          <h3 class='post-title'>
-            <%= post.title %>
-          </h3>
-          <div class='post-text'>
-            <div class='star-btn'>
-              <%#= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
-          </div>
+        <ul class="details">
+          <li class="author"><i class="fas fa-user"></i> <a href="#"><%= post.user.nickname %></a></li>
+          <li class="date"><i class="far fa-calendar"></i> <%= post.event_date %></li>
+          <li class="tags"><i class="fas fa-tag"></i> <a href="#"><%= post.prefecture.name %></a></li>
+        </ul>
+        <div class="description">
+          <h1><%= post.title %></h1>
+          <h2><%= post.event_name %></h2>
+          <p class="text"><%= post.text %>...</p>
+          <a href="#">Read More <i class="fas fa-angle-double-right"></i></a>
         </div>
-        <% end %>
-      </li>
-      <% end %>
-    </ul>
+      </div>
+    <% end %>
   </div>
   <%# 新着情報 %>
 </div>
