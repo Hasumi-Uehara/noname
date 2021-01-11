@@ -16,15 +16,15 @@
 
 ## Posts テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| event_name    | string     | null: false                    |
-| event_date    | date       | null: false                    |
-| title         | string     |                                |
-| text          | text       |                                |
-| record        | string     |                                |
-| prefecture_id | integer    | null:false                     |
-| user          | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| event_name        | string     | null: false                    |
+| event_date        | date       | null: false                    |
+| title             | string     |                                |
+| text              | text       |                                |
+| tournament_record | string     |                                |
+| prefecture_id     | integer    | null:false                     |
+| user              | references | null: false, foreign_key: true |
 
 ### Association
 
