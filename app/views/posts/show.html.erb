@@ -32,9 +32,9 @@
     </div>
   </div>
 </div>
-<div class="edit-post-btn-contents">
+<div class="btn-contents">
   <% if user_signed_in? && current_user == @post.user %>
     <%= link_to '編集する', edit_post_path(@post), class:"edit-post-btn" %>
+    <%= link_to '削除する', post_path(@post), method: :delete, class:"delete-post-btn" %>
   <% end %>
-  <%= link_to '戻る', root_path, class:"back-btn" %>
 </div>
