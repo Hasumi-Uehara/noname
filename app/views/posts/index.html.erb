@@ -68,7 +68,7 @@
         <div class="description">
           <h1><%= post.title %></h1>
           <h2><%= post.event_name %></h2>
-          <p class="text"><%= post.text %>...</p>
+          <p class="text"><%= post.text.slice(0,100) %>...</p>
           <%= link_to "Read More", post_path(post), class:"read-more"  %>
         </div>
       </div>

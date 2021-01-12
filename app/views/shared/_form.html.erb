@@ -10,12 +10,13 @@
         <p>
           ファイルからアップロード
         </p>
-        <%= f.file_field :image, id:"post-image" %>
+        <%= f.file_field :image, id:"post-image", class:"post-img" %>
+        <div id="image-list"></div>
       </div>
     </div>
     <div class="book-record">
       <div class="detail-log">
-        <p>出場エリア</p>
+        出場エリア
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"post-prefecture"}) %>
@@ -45,17 +46,17 @@
         大会記録
         <span class="optional">任意</span>
       </div>
-      <%= f.text_area :tournament_record, class:"posts-text", id:"tournament-record", placeholder:"例）グロスタイム5:12:30、ネットタイム4:49:30" ,maxlength:"40" %>
+      <%= f.text_area :tournament_record, class:"posts-text", id:"tournament-record", placeholder:"マイページで記録を管理できます（40文字まで）" ,maxlength:"40" %>
       <div class="detail-log">
         投稿タイトル
         <span class="optional">任意</span>
       </div>
-      <%= f.text_area :title, class:"posts-text", id:"title", placeholder:"タイトル（任意 40文字まで）" ,maxlength:"40" %>
+      <%= f.text_area :title, class:"posts-text", id:"title", placeholder:"タイトル（40文字まで）" ,maxlength:"40" %>
       <div class="detail-log">
         本文
         <span class="optional">任意</span>
       </div>
-      <%= f.text_area :text, class:"posts-text", id:"text", placeholder:"その感動、シェアしよう（任意 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text, class:"posts-text", id:"text", placeholder:"その感動、シェアしよう（1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
     </div>
   </div>
   <div class="post-btn-contents">
