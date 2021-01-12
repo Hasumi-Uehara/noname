@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update]
   
   def index
     @posts = Post.includes(:user).order(created_at: 'DESC')
@@ -20,10 +21,24 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to action: :show
+    else
+      render action: :edit
+    end
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:event_date, :event_name, :prefecture_id, :tournament_record, :title, :text, :image).merge(user_id: current_user.id)
