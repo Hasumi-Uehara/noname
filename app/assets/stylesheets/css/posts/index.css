@@ -9,7 +9,7 @@ a {
 /* キャッチ始点 */
 .title-contents {
   width: 100vw;
-  /* background-image: image-url("../../../images/2817625.jpg"); */
+  background-image: url("2817625.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
