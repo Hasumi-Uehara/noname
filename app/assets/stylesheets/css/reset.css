@@ -17,6 +17,7 @@ div {
 body {
   font-family: "Verdana", "Noto Sans JP", sans-serif;
   color: #3b4043;
+  position: relative;
 }
 
 li {
@@ -31,4 +32,20 @@ img {
 a {
   text-decoration: none;
   color: #3b4043;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .page-heading {
+    font-size: 24px;
+  }
+}
+
+ @media (max-width: 599px) {
+  .page-heading {
+    font-size: 20px;
+  }
 }
