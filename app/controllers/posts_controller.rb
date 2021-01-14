@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index,      only: [:edit, :update]
+  before_action :set_post,        only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index,   only: [:edit, :update]
+  before_action :set_q,           only: [:search, :search_table]
 
   def index
-    @posts = Post.includes(:user).order(created_at: 'DESC')
+    @posts = Post.includes(:user).order(created_at: 'DESC').last(3)
   end
 
   def new
@@ -40,6 +41,14 @@ class PostsController < ApplicationController
     redirect_to user_path(@post.user.id)
   end
 
+  def search
+    @posts = Post.includes(:user).order(created_at: 'DESC')
+  end
+
+  def search_table
+    @posts = @q.result
+  end
+
   private
 
   def set_post
@@ -48,6 +57,10 @@ class PostsController < ApplicationController
 
   def move_to_index
     redirect_to root_path unless current_user.id == @post.user_id
+  end
+
+  def set_q
+    @q = Post.ransack(params[:q]) 
   end
 
   def post_params

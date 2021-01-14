@@ -15,9 +15,9 @@ div {
 }
 
 body {
+  position: relative;
   font-family: "Verdana", "Noto Sans JP", sans-serif;
   color: #3b4043;
-  position: relative;
 }
 
 li {

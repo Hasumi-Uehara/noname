@@ -1,14 +1,16 @@
 <div class='main'>
   <%# キャッチ %>
   <div class='title-contents'>
-    <h2 class='top-title'>
-      Hello Runner!
-    </h2>
-    <p class='top-explain'>
-      きれいな景色、おいしいグルメ、人の温かさ。<br>
-      あなたの感動を届けよう、<br>
-      日本中のランナーに。
-    </p>
+    <div class="copies">
+      <h2 class='top-title'>
+        Hello Runner!
+      </h2>
+      <p class='top-explain'>
+        きれいな景色、おいしいグルメ、人の温かさ。<br>
+        あなたの感動を届けよう、<br>
+        日本中のランナーに。
+      </p>
+    </div>
   </div>
   <%# キャッチ %>
 
@@ -36,7 +38,7 @@
         <p class='introduction-list-description'>
           エリア検索、カテゴリー検索ができます！
         </p>
-        <a href="#!" class="button-2">検索する</a>
+        <%= link_to '検索する', search_posts_path, class:"button-2" %>
       </li>
       <li class='list'>
         <%= image_tag "21004062.jpg", class:"list-pict" %>
@@ -46,7 +48,7 @@
         <p class='introduction-list-description'>
           同じ趣味のランナーと繋がって、走るをもっと楽しもう！
         </p>
-        <a href="#!" class="button-2">マイページ</a>
+        <%= link_to 'マイページ', user_path(current_user.id), class:"button-2" %>
       </li>
     </ul>
   </div>

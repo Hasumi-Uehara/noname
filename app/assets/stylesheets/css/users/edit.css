@@ -3,6 +3,7 @@
 .form-wrap {
   min-height: calc(100vh - 161px);
   text-align: center;
+  padding: 15vh 0;
 }
 
 .form-header {
