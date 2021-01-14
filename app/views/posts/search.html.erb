@@ -1,0 +1,24 @@
+<div class="search-container">
+  <div class="title">
+    <span><i class="far fa-paper-plane"></i> 見つける</span>
+  </div>
+
+  <div class="search-bar">
+    <%= search_form_for @q, url: posts_search_table_path do |f| %>
+      <div class="conditions">
+        <p>フリーワードで絞る</p>
+          <%= f.text_field :title_or_text_cont, placeholder:'例）那覇', class: "input-box" %>
+      </div>
+      <div class="search-btn-contents">
+        <%= f.submit '検索する', class:"search-btn" %>
+        <%= link_to 'TOPへ戻る', posts_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="search-results">
+    <% @posts.each do |post| %>
+      <%= render partial: "shared/results", locals: { post: post } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="search-container">
+  <div class="title">
+    <span><i class="far fa-paper-plane"></i> 探す</span>
+  </div>
+
+  <div class="search-bar">
+    <%= search_form_for @q, url: posts_search_table_path do |f| %>
+      <div class="conditions">
+        <p>フリーワードを入力</p>
+          <%= f.text_field :title_or_text_cont, class:"input-box" %>
+      </div>
+      <div class="search-btn-contents">
+        <%= f.submit '検索する', class:"search-btn" %>
+        <%= link_to 'TOPへ戻る', posts_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="search-results">
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <%= render partial: "shared/results", locals: { post: post } %>
+      <% end %>
+    <% else %>
+      <h2 class="non-result"><i class="far fa-sad-tear"></i> 該当する投稿がありません</h2>
+    <% end %>
+  </div>
+</div>
