@@ -1,6 +1,7 @@
 .inner {
   width: 1024px;
   margin: 0 auto;
+  padding: 15vh 0;
 }
 
 .user__wrapper{
@@ -43,9 +44,9 @@
   justify-content: center;
 }
 
-.edit-btn {
-  background: #afa6a7;
-  border: 1px solid #afa6a7;
+.user-edit-btn-contents .edit-btn {
+  background: #ca83a4;
+  border: 1px solid #ca83a4;
   color: #fff;
   border-radius: 4px;
   width: 130px;
@@ -54,6 +55,19 @@
   padding: 15px 0;
   font-size: 14px;
   margin-bottom: 8vh;
+  font-weight: bold;
+}
+
+.user-edit-btn-contents .back-btn {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 14px 2px;
+  border-radius: 4px;
+  width: 130px;
+  height: 50px;
+  font-size: 14px;
+  text-decoration: none;
   font-weight: bold;
 }
 
