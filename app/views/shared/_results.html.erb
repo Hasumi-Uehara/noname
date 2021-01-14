@@ -1,0 +1,16 @@
+<div class="cp_card">
+  <div class="photo photo1">
+    <%= link_to image_tag(post.image), "#" %>
+  </div>
+  <ul class="details">
+    <li class="author"><i class="fas fa-user"></i> <a href="#"><%= post.user.nickname %></a></li>
+    <li class="date"><i class="far fa-calendar"></i> <%= post.event_date %></li>
+    <li class="tags"><i class="fas fa-tag"></i> <a href="#"><%= post.prefecture.name %></a></li>
+  </ul>
+  <div class="description">
+    <h1><%= post.title %></h1>
+    <h2><%= post.event_name %></h2>
+    <p class="text"><%= post.text.slice(0,100) %>...</p>
+    <%= link_to "Read More", post_path(post), class:"read-more"  %>
+  </div>
+</div>
