@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/posts/search_table',  to: 'posts#search_table'
   resources :homes, only: [:index]
   resources :posts do
+    resources :comments, only: :create
     collection do
       get 'search'
     end
