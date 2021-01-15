@@ -31,6 +31,9 @@
       </table>
     </div>
   </div>
+  <div id="likes_buttons_<%= @post.id %>">
+    <%= render partial: 'shared/like', locals: { post: @post, likes: @likes} %>
+  </div>
 </div>
 <div class="sub-container">
   <% if user_signed_in? %>
