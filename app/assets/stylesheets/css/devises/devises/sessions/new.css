@@ -1,0 +1,36 @@
+.btn-text {
+  color: #fff;
+  margin-left: 2px;
+}
+
+.fb-btn {
+  color: #fff;
+  background:#3b75d4;
+  height: 40px;
+  width: 190px;
+  font-size: 15px;
+  border-radius: 7px;
+  border: solid 5px #3b75d4;
+}
+.btn--blue:hover {
+  color: #fff;
+  background: #4889f0;
+  border: solid 5px #4889f0;
+}
+
+.g-btn {
+  color: #fff;
+  background:#ef4d4d;
+  height: 40px;
+  width: 190px;
+  font-size: 15px;
+  border-radius: 7px;
+  border: solid 5px #ef4d4d;
+}
+
+.btn--red:hover {
+  color: #fff;
+  background: #ff6565;
+  border: solid 5px #ff6565;
+}
+

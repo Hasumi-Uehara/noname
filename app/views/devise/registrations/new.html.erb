@@ -8,6 +8,11 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
+    <div class="sns-auth">
+      <button class="fb-btn btn--blue"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+      <button class="g-btn btn--red"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+    </div>
+
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">ニックネーム</label>
@@ -22,21 +27,21 @@
       </div>
       <%= f.email_field :email, class:"input-default", id:"email", autofocus: true %>
     </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">パスワード</label>
-        <span class="indispensable">必須</span>
+    <%if @sns_id.present? %>
+      <%= hidden_field_tag :sns_auth, true %>
+    <% else %>
+      <div class="form-group">
+        <%= f.label :password %>
+        <% @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
-      <%= f.password_field :password, class:"input-default", id:"password" %>
-      <p class='info-text'>※6文字以上の半角英数字でご入力ください</p>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">パスワード(確認用)</label>
-        <span class="indispensable">必須</span>
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
-      <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation" %>
-    </div>
+    <% end %>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">プロフィール画像</label>
