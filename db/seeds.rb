@@ -1,4 +1,4 @@
-User.create(
+user = User.create(
   nickname:'ひがっち',
   profile:'沖縄で一番人口の多い比嘉の一人です。那覇市民。毎年那覇マラソン＋県外のマラソン大会に出没しています。3人娘のパパ。',
   appearance:'20回以上',
@@ -7,11 +7,10 @@ User.create(
   password:'higapapa55',
   password_confirmation:'higapapa55'
 )
-user = User.find(1)
 user.image.attach(io: File.open('db/images/01.jpg'), filename: '01.jpg')
 user.save
 
-User.create(
+user = User.create(
   nickname:'マネージョー',
   profile:'マネージョー（金城）です。20歳。ハタチから何かひとつ続けてみようと思って、毎年マラソンに出ることにしました。70歳まで続けたいので応援してください（笑）',
   appearance:'1回',
@@ -20,11 +19,10 @@ User.create(
   password:'kinjo55',
   password_confirmation:'kinjo55'
 )
-user = User.find(2)
 user.image.attach(io: File.open('db/images/02.jpg'), filename: '02.jpg')
 user.save
 
-User.create(
+user = User.create(
   nickname:'オシロ！',
   profile:'豊見城市在住、30代ワーママランナーです！昨年出場した那覇マラソンで女性の部50位内を達成しました！Facebookでは普段の練習の様子も挙げています☆',
   appearance:'33回',
@@ -33,7 +31,6 @@ User.create(
   password:'gaga55',
   password_confirmation:'gaga55'
 )
-user = User.find(3)
 user.image.attach(io: File.open('db/images/03.jpg'), filename: '03.jpg')
 user.save
 
