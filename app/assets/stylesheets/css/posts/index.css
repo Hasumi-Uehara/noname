@@ -79,22 +79,19 @@ a {
   margin: 20px 0;
 }
 
-.button-2 {
+.btn-square {
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8rem;
-  color: #00b5ad;
+  padding: 0.5em 1em;
   text-decoration: none;
-  user-select: none;
-  border: 1px #00b5ad solid;
-  border-radius: 20px;
-  transition: 0.4s ease;
+  background: #8badad;
+  color: #FFF;
+  border: solid 1px #8badad;
+  border-radius: 3px;
 }
 
-.button-2:hover {
-  color: #fff;
-  background: #00b5ad;
-  text-decoration: none;
+.btn-square:hover {
+  background: #a9cfcf;
+  border: solid 1px #a9cfcf;
 }
 /* アプリ紹介終点 */
 

@@ -21,34 +21,34 @@
     </h2>
     <ul class='introduction-lists'>
       <li class='list'>
-        <%= image_tag "3040067.jpg", class:"list-pict" %>
+        <%= image_tag "2876880.jpg", class:"list-pict" %>
         <h3 class='introduction-list-text'>
-          感動を伝えよう
+          発信する
         </h3>
         <p class='introduction-list-description'>
           全国のランナーがあなたの発信を待っています！
         </p>
-        <%=link_to '投稿する', new_post_path, class:"button-2" %>
+        <%=link_to '投稿する', new_post_path, class:"btn-square" %>
       </li>
       <li class='list'>
-        <%= image_tag "2408286.jpg", class:"list-pict" %>
+        <%= image_tag "2778963.jpg", class:"list-pict" %>
         <h3 class='introduction-list-text'>
-          行きたい街を見つけよう
+          探す
         </h3>
         <p class='introduction-list-description'>
-          エリア検索、カテゴリー検索ができます！
+          キーワード検索でお気に入りを見つけよう！
         </p>
-        <%= link_to '検索する', search_posts_path, class:"button-2" %>
+        <%= link_to '検索する', search_posts_path, class:"btn-square" %>
       </li>
       <li class='list'>
-        <%= image_tag "21004062.jpg", class:"list-pict" %>
+        <%= image_tag "3487268.jpg", class:"list-pict" %>
         <h3 class='introduction-list-text'>
-          フォローしよう
+          記録する
         </h3>
         <p class='introduction-list-description'>
-          同じ趣味のランナーと繋がって、走るをもっと楽しもう！
+          マイページであなたの大会記録を管理できます！
         </p>
-        <%= link_to 'マイページ', user_path(current_user.id), class:"button-2" %>
+        <%= link_to 'マイページ', user_path(current_user.id), class:"btn-square" %>
       </li>
     </ul>
   </div>

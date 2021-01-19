@@ -1,6 +1,86 @@
-<div class="slide" id="makeImg">
-  <img src="iwona-1280.png">
-  <img src="joshua_1280.png">
-  <img src="marathon-4614663_1280.png">
-  <img src="woman-591576_1280.png">
+<div class='main'>
+  <%# キャッチ %>
+  <div class='title-contents'>
+    <div class="copies">
+      <h2 class='top-title'>
+        Hello Runner!
+      </h2>
+      <p class='top-explain'>
+        きれいな景色、おいしいグルメ、人の温かさ。<br>
+        あなたの感動を届けよう、<br>
+        日本中のマラソンランナーに。
+      </p>
+    </div>
+  </div>
+  <%# キャッチ %>
+
+  <%# アプリ紹介 %>
+  <div class='introduction-contents'>
+    <h2 class='title'>
+      「あの街よかったよ！」と<br>マラソンランナー同士が共有しあえるプラットフォーム。
+    </h2>
+    <ul class='introduction-lists'>
+      <li class='list'>
+        <%= image_tag "2876880.jpg", class:"list-pict" %>
+        <h3 class='introduction-list-text'>
+          発信する
+        </h3>
+        <p class='introduction-list-description'>
+          全国のランナーがあなたの発信を待っています！
+        </p>
+        <% if user_signed_in? %>
+        <%=link_to '投稿する', new_post_path, class:"button-2" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= image_tag "2778963.jpg", class:"list-pict" %>
+        <h3 class='introduction-list-text'>
+          探す
+        </h3>
+        <p class='introduction-list-description'>
+          キーワード検索でお気に入りを見つけよう！
+        </p>
+        <% if user_signed_in? %>
+        <%= link_to '検索する', search_posts_path, class:"button-2" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= image_tag "3487268.jpg", class:"list-pict" %>
+        <h3 class='introduction-list-text'>
+          記録する
+        </h3>
+        <p class='introduction-list-description'>
+          マイページであなたの大会記録を管理できます！
+        </p>
+        <% if user_signed_in? %>
+        <%= link_to 'マイページ', user_path(current_user.id), class:"button-2" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <%# アプリ紹介 %>
+
+  <%# 新着情報 %>
+  <div class='news-contents'>
+    <h2 class='title'>新着情報</h2>
+    <% @posts.each do |post| %>
+      <div class="cp_card">
+        <div class="photo photo1">
+          <%= link_to image_tag(post.image), "#" %>
+        </div>
+        <ul class="details">
+          <li class="author"><i class="fas fa-user"></i> <a href="#"><%= post.user.nickname %></a></li>
+          <li class="date"><i class="far fa-calendar"></i> <%= post.event_date %></li>
+          <li class="tags"><i class="fas fa-tag"></i> <a href="#"><%= post.prefecture.name %></a></li>
+        </ul>
+        <div class="description">
+          <h1><%= post.title %></h1>
+          <h2><%= post.event_name %></h2>
+          <p class="text"><%= post.text.slice(0,100) %>...</p>
+          <%= link_to "Read More", post_path(post), class:"read-more"  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# 新着情報 %>
 </div>
