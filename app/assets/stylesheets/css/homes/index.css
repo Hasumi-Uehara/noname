@@ -1,43 +1,241 @@
-/*=== 画像の表示エリア ================================= */
-.slide {
-  /* position   : relative; */
-  overflow   : hidden;
-                    /* 画像のサイズに合わせて変更ください */
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
-  background : #fff;
+a {
+  text-decoration: none;
 }
- 
- /*=== 画像の設定 ======================================= */
-.slide img {
-  display    : block;
-  position   : absolute;
-  top: 70px;
-  left: 0;
-                      /* 画像のサイズを表示エリアに合せる */
-  min-height: 100%;
+
+.main {
+  background: #f8f8f8;
+}
+
+/* キャッチ始点 */
+.title-contents {
+  width: 100%;
+  background: url("top-image.jpg") center no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center center;
-  /* width      : 100%;
-  height     : 100%; */
-  opacity    : 0;
-  animation  : slideAnime 24s ease infinite;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
- 
- /*=== スライドのアニメーションを段差で開始する ========= */
-.slide img:nth-of-type(1) { animation-delay: 0s }
-.slide img:nth-of-type(2) { animation-delay: 6s }
-.slide img:nth-of-type(3) { animation-delay: 12s }
-.slide img:nth-of-type(4) { animation-delay: 18s }
- 
- /*=== スライドのアニメーション ========================= */
-@keyframes slideAnime{
-   0% { opacity: 0 }
-   1% { opacity: 1 }
-  25% { opacity: 1 }
-  26% { opacity: 0 }
- 100% { opacity: 0 }
+
+.copies {
+  padding: 20vh 0;
 }
+
+.top-title {
+  font-size: 7vh;
+}
+
+.top-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+/* キャッチ終点 */
+
+/* アプリ紹介始点 */
+.introduction-contents {
+  padding: 7vh 15vw;
+}
+
+.introduction-contents>.title {
+  text-align: center;
+  font-size: 5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.introduction-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.introduction-lists>.list {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.introduction-list-text {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.introduction-list-description {
+  font-size: 18px;
+  margin: 20px 0;
+}
+/* アプリ紹介終点 */
+
+/* 新着情報始点 */
+.news-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 17vh 100px 10vh 100px;
+}
+
+.news-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  margin-bottom: 7vh;
+}
+
+/*カード情報*/
+.cp_card {
+  font-size: 14px;
+  line-height: 1.45em;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  margin: 0 auto 1.6%;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  border-radius: 3px;
+  background: #ffffff;
+  -webkit-box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  }
+  .cp_card:hover .details {
+  left: 0;
+  }
+  .cp_card:hover.alt .details {
+  right: 0;
+  }
+  .cp_card.alt .details {
+  right: -100%;
+  left: inherit;
+  }
+  .cp_card .photo {
+  position: relative;
+  float: left;
+  width: 40%;
+  height: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  }
+  .cp_card:hover .photo {
+  -webkit-transform: rotate(5deg) scale(1.3);
+  transform: rotate(5deg) scale(1.3);
+  }
+  .cp_card .photo.photo1 {
+  background: url('images.jpg') center no-repeat;
+  background-size: cover;
+  }
+  .cp_card .details {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 200px;
+  margin: 0;
+  padding: 10px 15px;
+  list-style: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  background: rgba(45, 250, 199, 0.356);
+  }
+  .cp_card .details > li {
+  padding: 3px 0;
+  }
+  .cp_card .details li::before,
+  .cp_card .details .tags ul::before {
+  font-family: FontAwesome;
+  margin-right: 10px;
+  vertical-align: middle;
+  }
+
+  .cp_card .details .tags ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  }
+
+  .cp_card .details .tags li {
+  display: inline-block;
+  margin-right: 3px;
+  }
+  .cp_card .details a {
+  color: inherit;
+  }
+  .cp_card .details a:hover {
+  color: #a4d4c2;
+  }
+  .cp_card .description {
+  position: relative;
+  z-index: 0;
+  float: left;
+  width: 60%;
+  padding: 10px;
+  min-height: 200px;
+  }
+  .cp_card .description::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -15px;
+  width: 100%;
+  content: '';
+  -webkit-transform: skewX(-8deg);
+  transform: skewX(-8deg);
+  background: #ffffff;
+  }
+  .cp_card .description h1 {
+  font-size: 1.4em;
+  line-height: 1em;
+  margin: 0 0 10px 0;
+  }
+  .cp_card .description h2 {
+  font-size: 1em;
+  line-height: 1.2em;
+  margin: 1.2% 0;
+  color: #9b9b9b;
+  }
+  .cp_card .description p {
+  position: relative;
+  margin: 0;
+  padding-top: 20px;
+  }
+  .cp_card .description p::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 20%;
+  height: 6px;
+  content: '';
+  background: #74dac4ef;
+  }
+  .cp_card .description a {
+  float: right;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #74dac4ef;
+  }
+  .cp_card .description a:hover::after {
+  margin-left: 5px;
+  opacity: 1;
+  }
+  @media screen and (max-width: 480px) {
+  .cp_card .description h1 {
+  font-size: 1.3em;
+  }
+  }
+
+/* 新着情報終点 */

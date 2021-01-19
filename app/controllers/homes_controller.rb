@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def index
+    @posts = Post.includes(:user).order(created_at: 'DESC').last(3)
   end
   
   def new_guest
