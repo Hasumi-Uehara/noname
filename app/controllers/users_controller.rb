@@ -31,6 +31,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.fetch(:user,{}).permit(:nickname, :profile, :appearance, :highest_record).merge(user_id: current_user.id)
+    params.require(:user).permit(:nickname, :profile, :appearance, :highest_record)
   end
 end
