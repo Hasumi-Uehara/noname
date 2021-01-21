@@ -1,18 +1,8 @@
-* {
-  box-sizing: border-box;
-}
-
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
+.top-page-contents {
   width: 100%;
   height: 70px;
   padding: 1vh 3vw;
   background-color: #414040;
-}
-
-.top-page-contents {
   display: flex;
   justify-content: space-between;
   align-items: center;
