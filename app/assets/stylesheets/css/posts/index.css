@@ -3,27 +3,31 @@ a {
 }
 
 .main {
+  width: 100vw;
   background: #f8f8f8;
 }
 
 /* キャッチ始点 */
 .title-contents {
   width: 100%;
-  background: url("top-image.jpg") center no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 5vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.title-contents img {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .copies {
-  padding: 20vh 0;
+  position: absolute;
+  top: 15%;
+  left: 15%;
 }
 
 .top-title {
@@ -101,7 +105,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 17vh 100px 10vh 100px;
+  padding: 10vh 100px;
 }
 
 .news-contents>.title {

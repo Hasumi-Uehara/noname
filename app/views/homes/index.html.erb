@@ -1,11 +1,12 @@
-<div class='main'>
+<div class="main">
   <%# キャッチ %>
-  <div class='title-contents'>
+  <div class="title-contents">
+    <img src="top-image.jpg">
     <div class="copies">
-      <h2 class='top-title'>
+      <h2 class="top-title">
         Hello Runner!
       </h2>
-      <p class='top-explain'>
+      <p class="top-explain">
         きれいな景色、おいしいグルメ、人の温かさ。<br>
         あなたの感動を届けよう、<br>
         日本中のマラソンランナーに。
@@ -15,45 +16,45 @@
   <%# キャッチ %>
 
   <%# アプリ紹介 %>
-  <div class='introduction-contents'>
-    <h2 class='title'>
-      「あの街よかったよ！」と<br>マラソンランナー同士が共有しあえるプラットフォーム。
+  <div class="introduction-contents">
+    <h2 class="title">
+      「あの大会よかった〜！」を<br>マラソンランナー同士が共有しあえるプラットフォーム。
     </h2>
-    <ul class='introduction-lists'>
-      <li class='list'>
+    <ul class="introduction-lists">
+      <li class="list">
         <%= image_tag "2876880.jpg", class:"list-pict" %>
-        <h3 class='introduction-list-text'>
+        <h3 class="introduction-list-text">
           発信する
         </h3>
-        <p class='introduction-list-description'>
+        <p class="introduction-list-description">
           全国のランナーがあなたの発信を待っています！
         </p>
         <% if user_signed_in? %>
-        <%=link_to '投稿する', new_post_path, class:"button-2" %>
+          <%=link_to '投稿する', new_post_path, class:"button-2" %>
         <% end %>
       </li>
-      <li class='list'>
+      <li class="list">
         <%= image_tag "2778963.jpg", class:"list-pict" %>
-        <h3 class='introduction-list-text'>
+        <h3 class="introduction-list-text">
           探す
         </h3>
-        <p class='introduction-list-description'>
+        <p class="introduction-list-description">
           キーワード検索でお気に入りを見つけよう！
         </p>
         <% if user_signed_in? %>
-        <%= link_to '検索する', search_posts_path, class:"button-2" %>
+          <%= link_to '検索する', search_posts_path, class:"button-2" %>
         <% end %>
       </li>
-      <li class='list'>
+      <li class="list">
         <%= image_tag "3487268.jpg", class:"list-pict" %>
-        <h3 class='introduction-list-text'>
+        <h3 class="introduction-list-text">
           記録する
         </h3>
-        <p class='introduction-list-description'>
+        <p class="introduction-list-description">
           マイページであなたの大会記録を管理できます！
         </p>
         <% if user_signed_in? %>
-        <%= link_to 'マイページ', user_path(current_user.id), class:"button-2" %>
+          <%= link_to 'マイページ', user_path(current_user.id), class:"button-2" %>
         <% end %>
       </li>
     </ul>
@@ -61,8 +62,8 @@
   <%# アプリ紹介 %>
 
   <%# 新着情報 %>
-  <div class='news-contents'>
-    <h2 class='title'>新着情報</h2>
+  <div class="news-contents">
+    <h2 class="title">新着情報</h2>
     <% @posts.each do |post| %>
       <div class="cp_card">
         <div class="photo photo1">
