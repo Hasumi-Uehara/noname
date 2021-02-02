@@ -1,90 +1,40 @@
 <%= form_with model: @user, url: '/users', class: 'registration-main', local: true do |f| %>
   <div class='form-wrap'>
-    <div class='form-header'>
-      <h1 class='form-header-text'>
-        <i class="fas fa-paper-plane"></i> ユーザー新規登録
-      </h1>
-    </div>
-
-    <%= render 'shared/error_messages', model: f.object %>
-
-    <div class="form-space">
-      <div class="sns-auth">
-        <button class="fb-btn btn--blue"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
-        <button class="g-btn btn--red"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+    <div class='form-wrapper'>
+      <h2>beyond</h2>
+      <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
       </div>
-
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">ニックネーム</label>
-          <span class="reg-indispensable">必須</span>
-          <%= f.text_area :nickname, class:"input-default", id:"nickname", maxlength:"40" %>
+      <form>
+        <div class="form-item">
+          <label for="nickname"></label>
+          <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"ニックネーム" %>
         </div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">メールアドレス</label>
-          <span class="reg-indispensable">必須</span>
-          <%= f.email_field :email, class:"input-default", id:"email", autofocus: true %>
+        <div class="form-item">
+          <label for="email"></label>
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"メールアドレス", autofocus: true %>
         </div>
-      </div>
-      <%if @sns_id.present? %>
-        <%= hidden_field_tag :sns_auth, true %>
-      <% else %>
-        <div class="form-group">
-          <%= f.label :password, "パスワード" %>
-          <% @minimum_password_length %>
-          <em>(<%= @minimum_password_length %>文字以上)</em>
-          <span class="reg-indispensable">必須</span>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-          <br />
+        <%if @sns_id.present? %>
+          <%= hidden_field_tag :sns_auth, true %>
+        <% else %>
+          <div class="form-item">
+            <label for="password"></label>
+            <%= f.password_field :password, class:"input-default", id:"password", placeholder:"パスワード" %>
+          </div>
+          <div class="form-item">
+            <label for="password_confirmation"></label>
+            <%= f.password_field :password_confirmation, class:"input-default", id:"password", placeholder:"パスワード（確認用）" %>
+          </div>
+        <% end %>
+        <div class="button-panel">
+          <%= f.submit "アカウント登録" ,class:"button",title:"Sign Up" %>
         </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation, "パスワード確認" %>
-          <span class="reg-indispensable">必須</span>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          <br />
+        <div class="sns-auth-panel">
+          <button class="fb-button"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+          <button class="gg-button"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
         </div>
-      <% end %>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">プロフィール画像</label>
-          <span class="optional">任意</span>
-        </div>
-        <div class="click-upload">
-          <input id="profile-image" type="file" name="user[avatar]">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">プロフィール</label>
-          <span class="optional">任意</span>
-        </div>
-        <div class='input-name-wrap'>
-          <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"例) 沖縄県在住、ランナー歴5年。" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">大会出場経験</label>
-          <span class="optional">任意</span>
-        </div>
-        <div class='input-appearance-wrap'>
-          <%= f.text_area :appearance, class:"input-appearance", id:"appearance", placeholder:"例) フル完走3回" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">最高記録</label>
-          <span class="optional">任意</span>
-        </div>
-        <div class='input-highest-record-wrap'>
-          <%= f.text_area :highest_record, class:"input-highest-record", id:"highest-record", placeholder:"例) 那覇マラソン4:52:47" %>
-        </div>
-      </div>
-      <div class='register-btn'>
-        <%= f.submit "登録" ,class:"register-red-btn" %>
-      </div>
+      </form>
     </div>
   </div>
 <% end %>
