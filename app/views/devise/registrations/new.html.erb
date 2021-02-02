@@ -8,78 +8,83 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="sns-auth">
-      <button class="fb-btn btn--blue"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
-      <button class="g-btn btn--red"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
-    </div>
+    <div class="form-space">
+      <div class="sns-auth">
+        <button class="fb-btn btn--blue"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+        <button class="g-btn btn--red"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+      </div>
 
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">ニックネーム</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :nickname, class:"input-default", id:"nickname", maxlength:"40" %>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">メールアドレス</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.email_field :email, class:"input-default", id:"email", autofocus: true %>
-    </div>
-    <%if @sns_id.present? %>
-      <%= hidden_field_tag :sns_auth, true %>
-    <% else %>
       <div class="form-group">
-        <%= f.label :password %>
-        <% @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <div class='form-text-wrap'>
+          <label class="form-text">ニックネーム</label>
+          <span class="reg-indispensable">必須</span>
+          <%= f.text_area :nickname, class:"input-default", id:"nickname", maxlength:"40" %>
+        </div>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class='form-text-wrap'>
+          <label class="form-text">メールアドレス</label>
+          <span class="reg-indispensable">必須</span>
+          <%= f.email_field :email, class:"input-default", id:"email", autofocus: true %>
+        </div>
       </div>
-    <% end %>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">プロフィール画像</label>
-        <span class="optional">任意</span>
+      <%if @sns_id.present? %>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
+        <div class="form-group">
+          <%= f.label :password, "パスワード" %>
+          <% @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+          <span class="reg-indispensable">必須</span>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <br />
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, "パスワード確認" %>
+          <span class="reg-indispensable">必須</span>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <br />
+        </div>
+      <% end %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">プロフィール画像</label>
+          <span class="optional">任意</span>
+        </div>
+        <div class="click-upload">
+          <input id="profile-image" type="file" name="user[avatar]">
+        </div>
       </div>
-      <div class="click-upload">
-        <input id="profile-image" type="file" name="user[avatar]">
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">プロフィール</label>
+          <span class="optional">任意</span>
+        </div>
+        <div class='input-name-wrap'>
+          <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"例) 沖縄県在住、ランナー歴5年。" %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">プロフィール</label>
-        <span class="optional">任意</span>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">大会出場経験</label>
+          <span class="optional">任意</span>
+        </div>
+        <div class='input-appearance-wrap'>
+          <%= f.text_area :appearance, class:"input-appearance", id:"appearance", placeholder:"例) フル完走3回" %>
+        </div>
       </div>
-      <div class='input-name-wrap'>
-        <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"例) 沖縄県在住、ランナー歴5年。" %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">最高記録</label>
+          <span class="optional">任意</span>
+        </div>
+        <div class='input-highest-record-wrap'>
+          <%= f.text_area :highest_record, class:"input-highest-record", id:"highest-record", placeholder:"例) 那覇マラソン4:52:47" %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">大会出場経験</label>
-        <span class="optional">任意</span>
+      <div class='register-btn'>
+        <%= f.submit "登録" ,class:"register-red-btn" %>
       </div>
-      <div class='input-appearance-wrap'>
-        <%= f.text_area :appearance, class:"input-appearance", id:"appearance", placeholder:"例) フル完走3回" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">最高記録</label>
-        <span class="optional">任意</span>
-      </div>
-      <div class='input-highest-record-wrap'>
-        <%= f.text_area :highest_record, class:"input-highest-record", id:"highest-record", placeholder:"例) 那覇マラソン4:52:47" %>
-      </div>
-    </div>
-    <div class='register-btn'>
-      <%= f.submit "登録" ,class:"register-red-btn" %>
     </div>
   </div>
 <% end %>
