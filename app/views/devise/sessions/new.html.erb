@@ -1,36 +1,49 @@
 <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
   <div class='form-wrap'>
-    <div class='form-header'>
-      <h1 class='form-header-text'>
-        <i class="fas fa-paper-plane"></i> ログイン
-      </h1>
+    <div class="form-wrapper">
+      <h2>beyond</h2>
+      <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div>
+      <form>
+        <div class="form-item">
+          <label for="email"></label>
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"メールアドレス", autofocus: true %>
+        </div>
+        <div class="form-item">
+          <label for="password"></label>
+          <%= f.password_field :password, class:"input-default", id:"password", placeholder:"パスワード" %>
+        </div>
+        <div class="button-panel">
+          <%= f.submit "ログイン" ,class:"button",title:"Sign In" %>
+        </div>
+        <div class="sns-auth-panel">
+          <button class="fb-button"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+          <button class="gg-button"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
+        </div>
+      </form>
+      <div class="form-footer">
+        <p><%= link_to 'アカウント新規作成', new_user_registration_path %></p>
+      </div>
     </div>
 
-    <div class="sns-auth">
-      <button class="fb-btn btn--blue"><i class="fab fa-facebook-square"></i> <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
-      <button class="g-btn btn--red"><i class="fab fa-google"></i> <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"btn-text" %></button>
-    </div>
-
-    <div class='login-flash-message'>
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
-    </div>
-    <div class="form-group">
+    <%# <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">メールアドレス</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.email_field :email, class:"input-default", id:"email", autofocus: true %>
-    </div>
-    <div class="form-group">
+    <%# </div> %>
+    <%# <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">パスワード</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
-    </div>
-    <div class='login-btn'>
+    <%# </div> %>
+    <%# <div class='login-btn'>
       <%= f.submit "ログイン" ,class:"login-red-btn" %>
-    </div>
+    <%# </div> %>
   </div>
 <% end %>
